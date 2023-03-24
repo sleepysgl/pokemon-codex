@@ -40,6 +40,9 @@ function Pokedex() {
                         name={ pokemon.name}
                         image={ pokemon.sprites.front_default}
                         type={ pokemon.types[0].type.name}
+                        abilityOne={ pokemon.abilities[0].ability.name }
+                        height={ pokemon.height }
+                        weight={ pokemon.weight }
                         key={ index }
                         />
                         )}

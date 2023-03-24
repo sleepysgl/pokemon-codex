@@ -12,19 +12,18 @@ code {
     monospace;
 }
 
-.app-container {
+.app-container,
+.pokemon-container,
+.thumbnail-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
 }
 
-.pokemon-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.app-container {
+  min-width: 100vh;
+  min-height: 100vh;
 }
 
 .all-container {
@@ -32,4 +31,37 @@ code {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+
+.thumbnail-container {
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid black;
+  text-align: center;
+  box-shadow: 0 3px 15px black
+}
+
+.thumbnail-container .number {
+  border-radius: 1rem;
+  background-color: rgba(255,255,255, 0.3);
+}
+
+.thumb-container img {
+  width: 120px;
+  height: 120px;
+}
+
+h3,
+small {
+  text-transform: capitalize;
+}
+
+.load-more {
+  background: #f5f5f5 linear-gradient(#f5f5f5,#f1f1f1) repeat-x;
+  border-radius: 2px;
+  border: 1px solid #c6c6c6;
+  color: #444;
+  padding: 0.5rem 1.5rem;
+  min-width: 50%;
+  margin-top: 1rem;
 }
