@@ -4,7 +4,7 @@ import PokemonThumbnail from './PokemonThumbnails';
 function Pokedex() {
     
     const [allPokemons, setAllPokemons] = useState([])
-    const [loadMore, setLoadmore] = useState('https://pokeapi.co/api/v2/pokemon?limit=20')
+    const [loadMore, setLoadmore] = useState('https://pokeapi.co/api/v2/pokemon?limit=10')
 
     const getAllPokemons = async () => {
         const response = await fetch(loadMore)
@@ -38,13 +38,13 @@ function Pokedex() {
                         <PokemonThumbnail
                         id={ pokemon.id}
                         name={ pokemon.name}
-                        image={ pokemon.sprites.other.dream_world.front_default }
+                        image={ pokemon.sprites.front_default}
                         type={ pokemon.types[0].type.name}
                         key={ index }
                         />
                         )}
                 </div>
-                <button className = 'load-more'>Load more</button>
+                <button className = 'load-more' onClick={() => getAllPokemons()}>Load more</button>
             </div>
         </div>
 
