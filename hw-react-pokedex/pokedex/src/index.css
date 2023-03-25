@@ -12,6 +12,18 @@ code {
     monospace;
 }
 
+.background {
+  background-image: url(./images/background.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.title {
+  background-image: url(./images/logo.png);
+  width: 300px;
+  height: 100px;
+}
+
 .app-container,
 .pokemon-container,
 .thumbnail-container {
@@ -82,30 +94,30 @@ h4 {
   margin-top: 1rem;
 }
 
-/*Color for types*/
+/*Color for Pokemon types*/
 
 .grass {
-  background-color: rgb(110, 200, 113);
+  background-color: rgba(110, 200, 113, 0.654);
 }
 
 .fire {
-  background-color: rgb(255, 120, 120);
+  background-color: rgba(255, 84, 84, 0.7);
 }
 
 .water {
-  background-color: rgb(62, 197, 255);
+  background-color: rgba(62, 197, 255, 0.724);
 }
 
 .bug {
-  background-color: rgb(212, 180, 131);
+  background-color: rgba(208, 167, 106, 0.719);
 }
 
 .normal {
-  background-color: rgb(204, 204, 204);
+  background-color: rgba(195, 194, 194, 0.714);
 }
 
 .electric {
-  background-color: rgb(218, 218, 126);
+  background-color: rgba(240, 240, 112, 0.932);
 }
 
 .poison {
@@ -113,11 +125,11 @@ h4 {
 }
 
 .fairy {
-  background-color: rgb(255, 179, 191);
+  background-color: rgba(255, 179, 190, 0.719);
 }
 
 .ground {
-  background-color: rgb(163, 141, 112);
+  background-color: rgba(163, 129, 85, 0.725);
 }
 
 .fighting {
@@ -125,7 +137,7 @@ h4 {
 }
 
 .psychic {
-  background-color: rgba(64, 2, 64, 0.241);
+  background-color: rgba(64, 2, 64, 0.687);
 }
 
 .rock {

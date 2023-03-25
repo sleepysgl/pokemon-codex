@@ -30,25 +30,26 @@ function Pokedex() {
     }, []);
 
     return (
-        
-        <div className = 'app-container'>
-            <h1>Pokedex</h1>
-            <div className = 'pokemon-container'>
-                <div className = 'all-container'>
-                    { allPokemons.map(( pokemon, index) =>
-                        <PokemonThumbnail
-                        id={ pokemon.id}
-                        name={ pokemon.name}
-                        image={ pokemon.sprites.front_default}
-                        type={ pokemon.types[0].type.name}
-                        ability={ pokemon.abilities[0].ability.name }
-                        height={ pokemon.height }
-                        weight={ pokemon.weight }
-                        key={ index }
-                        />
-                        )}
+        <div className = 'background'>
+            <div className = 'app-container'>
+                <div className='title'></div>
+                <div className = 'pokemon-container'>
+                    <div className = 'all-container'>
+                        { allPokemons.map(( pokemon, index) =>
+                            <PokemonThumbnail
+                            id={ pokemon.id}
+                            name={ pokemon.name}
+                            image={ pokemon.sprites.front_default}
+                            type={ pokemon.types[0].type.name}
+                            ability={ pokemon.abilities[0].ability.name }
+                            height={ pokemon.height }
+                            weight={ pokemon.weight }
+                            key={ index }
+                            />
+                            )}
+                    </div>
+                    <button className = 'load-more' onClick={() => getAllPokemons()}>Load more</button>
                 </div>
-                <button className = 'load-more' onClick={() => getAllPokemons()}>Load more</button>
             </div>
         </div>
 
