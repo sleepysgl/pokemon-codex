@@ -30,6 +30,7 @@ function Pokedex() {
     }, []);
 
     return (
+        
         <div className = 'app-container'>
             <h1>Pokedex</h1>
             <div className = 'pokemon-container'>
@@ -40,7 +41,7 @@ function Pokedex() {
                         name={ pokemon.name}
                         image={ pokemon.sprites.front_default}
                         type={ pokemon.types[0].type.name}
-                        abilityOne={ pokemon.abilities[0].ability.name }
+                        ability={ pokemon.abilities[0].ability.name }
                         height={ pokemon.height }
                         weight={ pokemon.weight }
                         key={ index }

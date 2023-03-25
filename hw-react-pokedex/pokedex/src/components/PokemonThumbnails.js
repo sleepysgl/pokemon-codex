@@ -1,21 +1,21 @@
 import React from 'react'
 
-const PokemonThumbnail = ({id, name, image, type, height, weight, abilityOne}) => {
+const PokemonThumbnail = ({id, name, image, type, height, weight, ability}) => {
+
+    const style = `thumbnail-container ${type}`
     return(
-        <div className = 'thumbnail-container'>
+        <div className = {style}>
             <div className = 'number'>
                 <small>#0{id}</small>
             </div>
             <img src = {image} alt = {name} />
             <div className = "details">
-                <h3>{name}</h3>
-                <small> Ability 1: {abilityOne}</small>
-                <br/>
-                <small> Type: {type}</small>
-                <br/>
-                <small>Height: {height}</small>
-                <br/>
-                <small> Weight: {weight}</small>
+                <h4>{name}</h4>
+                <h5>Ability:</h5>
+                <h6>{ability}</h6>
+                <h5>Type: <span>{type}</span></h5>
+                <h5>Height: <span>{height}</span></h5>
+                <h5>Weight: <span>{weight}</span></h5>
             </div>
         </div>
     )
