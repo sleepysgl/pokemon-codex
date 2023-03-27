@@ -22,7 +22,7 @@ function Pokedex() {
             next: data.next
         }
     }
-    
+
     useEffect (() => {
         let ignore = false;
         getAllPokemons().then((response) => {
@@ -33,7 +33,9 @@ function Pokedex() {
     return (
         <div className = 'background'>
             <div className = 'app-container'>
-                <div className='title'></div>
+                <div className='title-container'>
+                    <div className='title'></div>
+                </div>
                 <div className = 'pokemon-container'>
                     <div className = 'all-container'>
                         { allPokemons.map(( pokemon, index ) =>
