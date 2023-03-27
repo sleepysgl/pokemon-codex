@@ -79,7 +79,9 @@ span
 }
 
 h4 {
-  border-radius: 9%;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 1px;
   border: 2px solid black;
 }
 
@@ -117,7 +119,7 @@ h4 {
 }
 
 .electric {
-  background-color: rgba(240, 240, 112, 0.932);
+  background-color: rgba(240, 240, 112, 0.816);
 }
 
 .poison {
@@ -153,7 +155,7 @@ h4 {
 }
 
 .ice {
-  background-color: rgb(133, 255, 255);
+  background-color: rgba(106, 254, 254, 0.741);
 }
 
 .dark {

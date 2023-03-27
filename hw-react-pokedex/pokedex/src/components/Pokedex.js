@@ -2,45 +2,46 @@ import {useEffect, useState} from 'react';
 import PokemonThumbnail from './PokemonThumbnails';
 
 function Pokedex() {
-    
     const [allPokemons, setAllPokemons] = useState([])
-    const [loadMore, setLoadmore] = useState('https://pokeapi.co/api/v2/pokemon?limit=10')
+    const [loadMore, setLoadmore] = useState('https://pokeapi.co/api/v2/pokemon?limit=20')
+
+    function update({pokemon, next}) {
+        setAllPokemons((prev) => prev.concat(pokemon));
+        setLoadmore(next);
+    }
 
     const getAllPokemons = async () => {
         const response = await fetch(loadMore)
         const data = await response.json()
-
-        setLoadmore(data.next)
-
-        function createPokemonObject (result) {
-            result.forEach( async (pokemon) => {
-                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
-                const data = await response.json()
-
-                setAllPokemons(currentList => [...currentList, data])
-
-            });
+        return {
+            pokemon: await Promise.all(
+                data.results.map(async (pokemon) =>
+                (await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)).json()
+              )
+            ),
+            next: data.next
         }
-        createPokemonObject(data.results)
-        await console.log(allPokemons)
     }
-
+    
     useEffect (() => {
-        getAllPokemons()
+        let ignore = false;
+        getAllPokemons().then((response) => {
+            if (!ignore) update(response);
+        });
+        return () => ignore = true;
     }, []);
-
     return (
         <div className = 'background'>
             <div className = 'app-container'>
                 <div className='title'></div>
                 <div className = 'pokemon-container'>
                     <div className = 'all-container'>
-                        { allPokemons.map(( pokemon, index) =>
+                        { allPokemons.map(( pokemon, index ) =>
                             <PokemonThumbnail
-                            id={ pokemon.id}
-                            name={ pokemon.name}
-                            image={ pokemon.sprites.front_default}
-                            type={ pokemon.types[0].type.name}
+                            id={ pokemon.id }
+                            name={ pokemon.name }
+                            image={ pokemon.sprites.front_default }
+                            type={ pokemon.types[0].type.name }
                             ability={ pokemon.abilities[0].ability.name }
                             height={ pokemon.height }
                             weight={ pokemon.weight }
@@ -48,11 +49,10 @@ function Pokedex() {
                             />
                             )}
                     </div>
-                    <button className = 'load-more' onClick={() => getAllPokemons()}>Load more</button>
+                    <button className = 'load-more' onClick={() => getAllPokemons().then(update)}>Load more</button>
                 </div>
             </div>
         </div>
-
     );
 }
 export default Pokedex;
