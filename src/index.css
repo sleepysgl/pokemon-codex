@@ -14,8 +14,8 @@ code {
 
 .background {
   background-image: url(./images/background.jpg);
-  background-repeat: no-repeat;
   background-attachment: fixed;
+  object-fit: cover;
 }
 
 .title-container{
